@@ -24,6 +24,7 @@ public class GithubAccountController
 		
 		if(githubAccount.userExists==false)
 		{
+			modelMap.put("username", username);
 			return "userNotFound";
 		}
 		
