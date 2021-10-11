@@ -31,14 +31,15 @@ public class GithubAccount
 		{
 			this.gh = GitHub.connectAnonymously();									//Connect to GitHub
 			this.ghUser=this.gh.getUser(this.username);								//Get the GitHub account based off of a username
-			this.allRepositories=this.ghUser.getRepositories();						//Get all of the account's public repos
+			this.allRepositories=this.ghUser.getRepositories();							//Get all of the account's public repos
+			this.userExists=true;
 		} catch (IOException e) 
 		{
 			e.printStackTrace();
 		}
 		//If the account was found, then userExists is set to true.
 		//Otherwise, the method will error out and userExists will remain false
-		this.userExists=true;														 
+																 
 	}
 	//O(n*m) where n=all of the account's repos and m=all languages used in the current repo
 	public JSONObject generateAllRepoStats()
